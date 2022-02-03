@@ -93,6 +93,7 @@ public void ConfigureServices(IServiceCollection services){
 - Adds `appsettings.Development.json` the connection string to the settings file for develpment, see `ConnectionString`, it will point to the db and defines the connection string
 
 - dotnet migrate and then update the database. In the dev DB adds some initial data to work with 
+- creates user controller and route with get methods
 
 ## Some theory
 
