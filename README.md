@@ -36,4 +36,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - if Swashbuckle.AspNetCore error appears try this command - `dotnet nuget add source --name nuget.org https://api.nuget.org/v3/index.json`
 - `dotnet sln add API` - to add solution into API
 
+### Usage
++ `dotnet run` - to start the application
++ `dotnet dev-certs https --trust` - to make computer trust the certificate
 #### VSCode customisation
