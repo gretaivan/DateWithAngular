@@ -42,7 +42,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Node 14
 - Entity Framework
 - AutoMapper
-- Sqlight - for development
+- Sqlite - for development
 
 ###### and of course
 
@@ -56,6 +56,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - C#
 - C# Extension
 - NuGet Gallery
+- Sqlite
 
 ## Installation & Usage
 
@@ -66,6 +67,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - if Swashbuckle.AspNetCore error appears try this command - `dotnet nuget add source --name nuget.org https://api.nuget.org/v3/index.json`
 - `dotnet sln add API` - to add solution into API
 - `dotnet ef migrations add <name-migration> -o Data/Migrations` - to create/update/generate db schema
+- `dotnet ef database update` - builds application, reads migrations and executes it in the DB
 
 ### Usage
 
@@ -81,15 +83,16 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Adds AppUser entity class with Entity framework (add entity framework to dependencies too)
 - Adds DataContext in Data, to connect AppUser entity to the DB 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-			{
-				services.AddDbContext<DataContext>(options => {
-					options.UseSqlite(this._config.GetConnectionString("DefaultConnection"));
-				}); 
+public void ConfigureServices(IServiceCollection services){
+    services.AddDbContext<DataContext>(options => {
+    options.UseSqlite(this._config.GetConnectionString("DefaultConnection"));
+}); 
   ```
 - Adds in the `Startup.cs` file the the connection DataContext stating to connect to the SQlight with the DefualtConnection string
 
 - Adds `appsettings.Development.json` the connection string to the settings file for develpment, see `ConnectionString`, it will point to the db and defines the connection string
+
+- dotnet migrate and then update the database. In the dev DB adds some initial data to work with 
 
 ## Some theory
 
