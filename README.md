@@ -43,3 +43,10 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 + CSS
 + Postman
 
+## Installation & Usage
+### Installation 
++ `dotnet new sln` - create a solution file, helps to unify settings between IDEs
++ `dotnet new webapi -o API` - create ASP .NET Core 6 WebAPI project, output is API folder
++ `dotnet sln add API` - to add solution into API 
+#### VSCode customisation 
+
