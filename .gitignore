@@ -451,3 +451,5 @@ $RECYCLE.BIN/
 assets/
 API/appsettings.json
 API/appsettings.Development.json
+client/node_modules
+.vscode/
