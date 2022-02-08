@@ -11,6 +11,8 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 
 ## Features
 
+- [ ] use of ssl security
+- [ ] password hashing and salt upgraded to ASP .NET identity
 - [ ] drag and drop photo upload integrating into a cloud platform
 - [ ] private messaging system
 - [ ] filtering, sorting and paging of data
@@ -124,6 +126,12 @@ public void ConfigureServices(IServiceCollection services){
 
 - _Client_ - seeting up the main component to fetch the user api
 - _API_ implement CORS
+
+#### API 
+- added BaseController class to reuse ApiController decorators 
+- extened the AppUser class to have PasswordHash and Salt
+- created new controller `AccountContoller.cs` with registration route, to work with query passing and password hashing and salting
+- creates data transfer object `RegisterDTO`  to hide or flatten objects
 
 ## Some theory
 
