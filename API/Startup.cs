@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
+using API.Services.TokenService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,10 +31,10 @@ namespace API
 				services.AddDbContext<DataContext>(options => {
 					options.UseSqlite(this._config.GetConnectionString("DefaultConnection"));
 				}); 
-
+	
 				services.AddControllers();
 				services.AddCors();
-			
+				services.AddScoped<ITokenCreator, TokenService>(); 	
 				services.AddSwaggerGen(c =>
 				{
 						c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });

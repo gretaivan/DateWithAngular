@@ -18,14 +18,13 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - [ ] private messaging system
 - [ ] filtering, sorting and paging of data
 - [ ] Display notifications in Angular
-- [ ] Authentication using JWT Authentication tokens
+- [x] Authentication using JWT Authentication tokens
 - [ ] Real time notifications and presence using SignalR
 
 - [ ] drag and drop photo upload integrating into a cloud platform
 - [ ] private messaging system
 - [ ] filtering, sorting and paging of data
 - [ ] Display notifications in Angular
-- [ ] Authentication using JWT Authentication tokens
 - [ ] Real time notifications and presence using SignalR
 
 ## Aims
@@ -47,13 +46,14 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 ## Technologies:
 
 - Angular 12
-- ASP .NET Core 6.0
+- ASP .NET Core 5.0.13
 - TypeScript
 - C#
 - Node 14
 - Entity Framework
 - AutoMapper
 - Sqlite - for development
+- System.Identity model tokens jwt v
 
 ###### and of course
 
@@ -134,8 +134,16 @@ public void ConfigureServices(IServiceCollection services){
 - added BaseController class to reuse ApiController decorators
 - extened the AppUser class to have PasswordHash and Salt
 - created new controller `AccountContoller.cs` with registration route, to work with query passing and password hashing and salting
-- creates data transfer object `RegisterDTO` to hide or flatten objects
-- refines `AccountController` to take request body, through dto use, check if username is new and return bad request if it exists.
+- created data transfer object `RegisterDTO` to hide or flatten objects
+- refined `AccountController` to take request body, through dto use, check if username is new and return bad request if it exists.
+- created `LoginDTO` to remap the User entity
+- adds login method in `AccountController` with validation
+- created JWT token service interface `ITokenCreator`
+- created `TokenService` that implements the token interface
+- added token service to the dependency injector box `Startup.cs` within the scope of Http request.
+- implemented token service 
+
+#### Client
 
 ## Some theory
 
@@ -144,7 +152,7 @@ public void ConfigureServices(IServiceCollection services){
 An Object Relation Mapper (ORM). I translates our code into SQL commands that update tables in the database. In sense it is an automation framework. Features:
 
 - Quering
-- Change Trancking
+- Change Tracking
 - Saving
 - Concurrency
 - Transactions
@@ -152,3 +160,49 @@ An Object Relation Mapper (ORM). I translates our code into SQL commands that up
 - Built-in conventions
 - Configuration - for conventions
 - Migration - allows schema creation in DB
+
+### JWT Structure
+Anytime the user wants to access any part that requires the authentication, the JWT token should be used. The action flow is as follows: 
+1. Client: sends username + password 
+2. Server: validates credentials and returns JWT
+3. Client: Send JWT with further requests
+4. Server: verifies JWT and sends back response
+
+#### Benefits: 
++ no need to manage sessions. 
++ Portable -  a single token with multiple backends as long as backends share the same secret key
++ No cookies required - mobile friendly
++ Performance - no need to connect to DB to verify users authentication, once token is issued.
+
+
+- Header - algorithm token and token type. Algorithm encrypts the token
+
+```json
+{
+  "alg": "algorithm type",
+  "typ": "JWT"
+}
+```
+
+- Payload - contains information about the request claims and identifies the user. i.e. is user the entity that it claims to be
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+```
+
+- Signature - encrypted by the server, using the secure key that does not leave the server.
+
+```json
+    HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
+}
+```
+
+### Dependency injection container | ConfigureServices
+#### Service lifecycle
++ .AddSingleton -  does not stop untill aplication stops 
++ .AddScoped<interface, service> - whatver controller scope is, thats when it is used. e.g.  apicontroller tied to the service  - means that when request is finished service will be disposed. Best suited for http requests. TO use with JWT tokens add the token service: `services.AddScoped<ITokenCreator, TokenService>(); 	`
++ .AddTransient - created and destroyed as soon as the method is finished but not suitable for Http Requests

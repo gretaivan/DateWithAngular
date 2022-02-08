@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {}
+    "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {
+    "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
+        "projectUniqueName": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
+        "projectPath": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
         "packagesPath": "C:\\Users\\greta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\obj\\",
+        "outputPath": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\greta\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,6 +51,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.15.1, )"
             }
           },
           "imports": [
