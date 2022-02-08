@@ -55,3 +55,7 @@ C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Humanizer.dll
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

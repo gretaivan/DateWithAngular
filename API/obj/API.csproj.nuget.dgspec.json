@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {}
+    "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {
+    "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
+        "projectPath": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
         "packagesPath": "C:\\Users\\greta\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\obj\\",
+        "outputPath": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\greta\\AppData\\Roaming\\NuGet\\NuGet.Config"

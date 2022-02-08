@@ -141,7 +141,10 @@ public void ConfigureServices(IServiceCollection services){
 - created JWT token service interface `ITokenCreator`
 - created `TokenService` that implements the token interface
 - added token service to the dependency injector box `Startup.cs` within the scope of Http request.
-- implemented token service 
+- implemented token service `TokenService`
+- created `UserDTO` that is an object to be returned post login or registration
+- implements JWT token in the `AcountController`, updates login and register methods to return user object with token
+- added token string for development environment, that can be sent to the remote repo `appsettings.Development.json`
 
 #### Client
 
@@ -162,20 +165,22 @@ An Object Relation Mapper (ORM). I translates our code into SQL commands that up
 - Migration - allows schema creation in DB
 
 ### JWT Structure
-Anytime the user wants to access any part that requires the authentication, the JWT token should be used. The action flow is as follows: 
-1. Client: sends username + password 
+
+Anytime the user wants to access any part that requires the authentication, the JWT token should be used. The action flow is as follows:
+
+1. Client: sends username + password
 2. Server: validates credentials and returns JWT
 3. Client: Send JWT with further requests
 4. Server: verifies JWT and sends back response
 
-#### Benefits: 
-+ no need to manage sessions. 
-+ Portable -  a single token with multiple backends as long as backends share the same secret key
-+ No cookies required - mobile friendly
-+ Performance - no need to connect to DB to verify users authentication, once token is issued.
+#### Benefits:
 
+- no need to manage sessions.
+- Portable - a single token with multiple backends as long as backends share the same secret key
+- No cookies required - mobile friendly
+- Performance - no need to connect to DB to verify users authentication, once token is issued.
 
-- Header - algorithm token and token type. Algorithm encrypts the token
+* Header - algorithm token and token type. Algorithm encrypts the token
 
 ```json
 {
@@ -202,7 +207,9 @@ Anytime the user wants to access any part that requires the authentication, the 
 ```
 
 ### Dependency injection container | ConfigureServices
+
 #### Service lifecycle
-+ .AddSingleton -  does not stop untill aplication stops 
-+ .AddScoped<interface, service> - whatver controller scope is, thats when it is used. e.g.  apicontroller tied to the service  - means that when request is finished service will be disposed. Best suited for http requests. TO use with JWT tokens add the token service: `services.AddScoped<ITokenCreator, TokenService>(); 	`
-+ .AddTransient - created and destroyed as soon as the method is finished but not suitable for Http Requests
+
+- .AddSingleton - does not stop untill aplication stops
+- .AddScoped<interface, service> - whatver controller scope is, thats when it is used. e.g. apicontroller tied to the service - means that when request is finished service will be disposed. Best suited for http requests. TO use with JWT tokens add the token service: `services.AddScoped<ITokenCreator, TokenService>(); `
+- .AddTransient - created and destroyed as soon as the method is finished but not suitable for Http Requests

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "186WY9Lpht0yevSErROx+b0NHQ1hcxCIDvKQLetVPt5SGyHr4K4Tf0EzVuf0rbeDvuxEtwEV72T0PZ8L6pmC7w==",
+  "dgSpecHash": "fccaB/in5lpkqX9W2jWY8rUPpWZg6hJx3YjTn5WQIUMXkZlrFfTDZxU/saoFn7pK2hq4t+D731zlP4AbRFVFiQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\greta\\programming-projects\\DOTNET_Angular\\DateWithAngular\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\greta\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\greta\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
