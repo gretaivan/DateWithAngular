@@ -1,4 +1,4 @@
-# DateWithAngular
+s# DateWithAngular
 
 A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular app using the DotNet CLI and the Angular CLI following best practices.
 
@@ -53,7 +53,8 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Entity Framework
 - AutoMapper
 - Sqlite - for development
-- System.Identity model tokens jwt v
+- System.Identity model tokens jwt 
+- Microsoft.Aspnetcore.Authentication.JWTBearer c 5.0.13
 
 ###### and of course
 
@@ -145,6 +146,8 @@ public void ConfigureServices(IServiceCollection services){
 - created `UserDTO` that is an object to be returned post login or registration
 - implements JWT token in the `AcountController`, updates login and register methods to return user object with token
 - added token string for development environment, that can be sent to the remote repo `appsettings.Development.json`
+- installed microsoft api core jwt bearer, added protected routers to the  `UserController`
+- added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
 
 #### Client
 

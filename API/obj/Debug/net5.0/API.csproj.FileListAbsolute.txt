@@ -59,3 +59,6 @@ C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\greta\programming-projects\DOTNET_Angular\DateWithAngular\API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
