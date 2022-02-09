@@ -9,7 +9,6 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Users should be able to view other users
 - Users should be able to privatively message other users
 
-
 ## Features
 
 - [x] use of ssl security
@@ -54,7 +53,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Entity Framework
 - AutoMapper
 - Sqlite - for development
-- System.Identity model tokens jwt 
+- System.Identity model tokens jwt
 - Microsoft.Aspnetcore.Authentication.JWTBearer c 5.0.13
 
 ###### and of course
@@ -105,6 +104,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 
 - `ng serve` - to start the client server
 - `ng g c <name>` creates new component
+- `ng g s <name>` optional part `--skip-tests` - creates the service
 
 ## Development process
 
@@ -148,13 +148,17 @@ public void ConfigureServices(IServiceCollection services){
 - created `UserDTO` that is an object to be returned post login or registration
 - implements JWT token in the `AcountController`, updates login and register methods to return user object with token
 - added token string for development environment, that can be sent to the remote repo `appsettings.Development.json`
-- installed microsoft api core jwt bearer, added protected routers to the  `UserController`
+- installed microsoft api core jwt bearer, added protected routers to the `UserController`
 - added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
 - Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
 
 #### Client
+
 - generated nav component with CLI
-- added bootstrap 
+- added bootstrap
+- added navigation component `nav` with login form that takes the input and outputs to console log using ngModel
+- created account service `account.services.ts` that creates the post request to the `api/account/login` 
+
 
 ## Some theory
 
@@ -223,4 +227,10 @@ Anytime the user wants to access any part that requires the authentication, the 
 - .AddTransient - created and destroyed as soon as the method is finished but not suitable for Http Requests
 
 #### Extension methods
+
 is a good practice to keep a startup class as clean as possible. The method that is being extended should be preceded with keyword `this` anything else is passed as a standard parameter.
+
+#### Angular
+
+- Two way biding syntax `()` means from the template to component and `[]` from component to the template and `[()]` is a two way binding
+- Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a componentconstructor 
