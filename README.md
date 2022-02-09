@@ -9,6 +9,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Users should be able to view other users
 - Users should be able to privatively message other users
 
+
 ## Features
 
 - [x] use of ssl security
@@ -103,6 +104,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 #### AngularJS
 
 - `ng serve` - to start the client server
+- `ng g c <name>` creates new component
 
 ## Development process
 
@@ -151,6 +153,8 @@ public void ConfigureServices(IServiceCollection services){
 - Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
 
 #### Client
+- generated nav component with CLI
+- added bootstrap 
 
 ## Some theory
 
