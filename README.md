@@ -148,6 +148,7 @@ public void ConfigureServices(IServiceCollection services){
 - added token string for development environment, that can be sent to the remote repo `appsettings.Development.json`
 - installed microsoft api core jwt bearer, added protected routers to the  `UserController`
 - added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
+- Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
 
 #### Client
 
@@ -216,3 +217,6 @@ Anytime the user wants to access any part that requires the authentication, the 
 - .AddSingleton - does not stop untill aplication stops
 - .AddScoped<interface, service> - whatver controller scope is, thats when it is used. e.g. apicontroller tied to the service - means that when request is finished service will be disposed. Best suited for http requests. TO use with JWT tokens add the token service: `services.AddScoped<ITokenCreator, TokenService>(); `
 - .AddTransient - created and destroyed as soon as the method is finished but not suitable for Http Requests
+
+#### Extension methods
+is a good practice to keep a startup class as clean as possible. The method that is being extended should be preceded with keyword `this` anything else is passed as a standard parameter.
