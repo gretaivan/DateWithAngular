@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Date with Angular</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">D+A</a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+    </button> -->
+    <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
         <li class="nav-item">
           <a class="nav-link" href="#">Matches<span class="sr-only">(current)</span></a>
         </li>
@@ -14,13 +14,41 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Messages</a>
-        </li>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" href="#">Logout</a>
+        </li> 
       </ul>
-      <form #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplet="off">
+
+
+      <form *ngIf="!loggedIn" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplet="off">
         <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Login Username">
         <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Login Password">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
       </form>
+    <!-- </div> -->
+  </div>
+  
+
+  <div *ngIf="loggedIn" class="btn-group dropdown" dropdown>
+    <button id="button-animated" dropdownToggle type="button" class="btn btn-dark dropdown-toggle"
+            aria-controls="dropdown-animated">
+      Welcome user<span class="caret"></span>
+    </button>
+    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-animated">
+      <li role="menuitem"><a class="dropdown-item" href="#">Edit profile</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div *ngIf="loggedIn" class="dropdown">
+    <a href="#" class="dropdown-toggle text-light">Welcome user</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item">Edit profile</a>
+      <a class="dropdown-item" (click)="logout()">Logout</a>
     </div>
   </div>
 </nav>
