@@ -28,26 +28,13 @@
       </form>
     <!-- </div> -->
   </div>
-  
-
-  <div *ngIf="loggedIn" class="btn-group dropdown" dropdown>
-    <button id="button-animated" dropdownToggle type="button" class="btn btn-dark dropdown-toggle"
-            aria-controls="dropdown-animated">
-      Welcome user<span class="caret"></span>
-    </button>
-    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
-        role="menu" aria-labelledby="button-animated">
-      <li role="menuitem"><a class="dropdown-item" href="#">Edit profile</a></li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="logout()">Logout</a>
-      </li>
-    </ul>
-  </div>
 
 
-  <div *ngIf="loggedIn" class="dropdown">
-    <a href="#" class="dropdown-toggle text-light">Welcome user</a>
-    <div class="dropdown-menu">
+  <div *ngIf="loggedIn" class="dropdown" dropdown>
+    <a href="#" class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+    <div class="dropdown-menu mt-3" *dropdownMenu>
       <a class="dropdown-item">Edit profile</a>
+      <div class="dropdown-divider"></div>
       <a class="dropdown-item" (click)="logout()">Logout</a>
     </div>
   </div>
