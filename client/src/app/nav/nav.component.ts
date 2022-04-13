@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   constructor(public accountService: AccountService) { } //passes services to the nav component
   ngOnInit(): void {
-    
+    console.log(this.accountService.currentUser$)
   }
 
   login(){

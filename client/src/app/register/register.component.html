@@ -13,10 +13,4 @@
     <button class="btn btn-success mr-2 px-4" type="submit">Register</button>
     <button class="btn btn-light mr-2 px-4" (click)="cancel()" type="button">Cancel</button>
   </div>
-  <div class="form-group">
-    <label> Who is the user</label>
-    <select name="" id="" class="form-control">
-      <option *ngFor="let user of usersFromHomeComponent" [value]="user.userName">{{user.userName}}</option>
-    </select>
-  </div>
 </form>

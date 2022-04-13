@@ -165,7 +165,7 @@ public void ConfigureServices(IServiceCollection services){
 - _Homepage aka home component_
   - generated `home and register` components with angular cli without tests
   - in home component adds basic logic of changing the screens - toggle the registration form
-  - adds `register` component logic and template form 
+  - adds `register` component logic and template form with cancel functionality
 
 ## Some theory
 
@@ -268,4 +268,6 @@ is a good practice to keep a startup class as clean as possible. The method that
 #### Angular
 
 - Two way biding syntax `()` means from the template to component and `[]` from component to the template and `[()]` is a two way binding
+- to pass data parent to child add to html parent template add `[childVarName]="parentVarName"` allows passing down the data parent to child
+- to pass from child to parent in html parent template add: `(childVar)="parentfunction($event || other property)` sending data from the child -->
 - Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a componentconstructor
