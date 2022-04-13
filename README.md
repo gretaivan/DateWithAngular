@@ -161,6 +161,7 @@ public void ConfigureServices(IServiceCollection services){
   - modifies `account.services.ts` to utilise user model as well as adds an observable `currentUser$` and modifies the login and logout functions
   - adds in `app.component.ts` setUser functionality to update it from the local storage and if it exists pass it back to `account.service.ts`
   - modifies `nav.component.ts` to subscribe observable `currentUser$`
+  - refactors app account services and nav component to use pipe so it automatically unsubscribes when component is not in use, also code cleanup reduce repetition.
 
 ## Some theory
 
