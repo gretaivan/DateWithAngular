@@ -7,11 +7,13 @@
       <button class="btn btn-info btn-lg">Learn more</button>
     </div>
   </div>
-
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <app-register></app-register>
+
+        <!-- [childVarName]="parentVarName" allows passing down the data parent to child -->
+        <!-- () sending data from the child -->
+        <app-register [usersFromHomeComponent]="users" (cancelRegister)="cancelRegisterMode($event)"></app-register>
       </div>
     </div>
   </div>

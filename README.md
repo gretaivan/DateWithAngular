@@ -165,7 +165,7 @@ public void ConfigureServices(IServiceCollection services){
 - _Homepage aka home component_
   - generated `home and register` components with angular cli without tests
   - in home component adds basic logic of changing the screens - toggle the registration form
-  - adds `register` component logic and template form
+  - adds `register` component logic and template form 
 
 ## Some theory
 
