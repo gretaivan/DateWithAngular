@@ -1,10 +1,44 @@
-s# DateWithAngular
+# DateWithAngular
 
 A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular app using the DotNet CLI and the Angular CLI following best practices.
 
+## Installation & Usage
+
+### Installation
+
+#### ASP .NET
+
+- `dotnet new sln` - create a solution file, helps to unify settings between IDEs
+- `dotnet new webapi -o API` - create ASP .NET Core 6 WebAPI project, output is API folder
+- if Swashbuckle.AspNetCore error appears try this command - `dotnet nuget add source --name nuget.org https://api.nuget.org/v3/index.json`
+- `dotnet new gitignore`
+- `dotnet sln add API` - to add solution into API
+- `dotnet ef migrations add <name-migration> -o Data/Migrations` - to create/update/generate db schema
+- `dotnet ef database update` - builds application, reads migrations and executes it in the DB
+
+#### AngularJS
+
+- `ng new client --strict false` - to create a new client folder with angular
+- `ng add ngx-bootstrap`
+- `npm install font-awesome`
+
+### Usage
+
+#### ASP .NET
+
+- `dotnet run` or `dotnet watch run`- to start the application
+- `dotnet dev-certs https --trust` - to make computer trust the certificate
+- `dotnet ef database drop` - if you want to clean the database
+
+#### AngularJS
+
+- `ng serve` - to start the client server
+- `ng g c <name>` creates new component
+- `ng g s <name>` optional part `--skip-tests` - creates the service
+
 ## Requirements
 
-- Users should be able to login
+- Users should be able to login (persisting login)
 - Users should be able to register
 - Users should be able to view other users
 - Users should be able to privatively message other users
@@ -69,40 +103,6 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Sqlite
 - Angular Language extensions
 
-## Installation & Usage
-
-### Installation
-
-#### ASP .NET
-
-- `dotnet new sln` - create a solution file, helps to unify settings between IDEs
-- `dotnet new webapi -o API` - create ASP .NET Core 6 WebAPI project, output is API folder
-- if Swashbuckle.AspNetCore error appears try this command - `dotnet nuget add source --name nuget.org https://api.nuget.org/v3/index.json`
-- `dotnet new gitignore`
-- `dotnet sln add API` - to add solution into API
-- `dotnet ef migrations add <name-migration> -o Data/Migrations` - to create/update/generate db schema
-- `dotnet ef database update` - builds application, reads migrations and executes it in the DB
-
-#### AngularJS
-
-- `ng new client --strict false` - to create a new client folder with angular
-- `ng add ngx-bootstrap`
-- `npm install font-awesome`
-
-### Usage
-
-#### ASP .NET
-
-- `dotnet run` or `dotnet watch run`- to start the application
-- `dotnet dev-certs https --trust` - to make computer trust the certificate
-- `dotnet ef database drop` - if you want to clean the database
-
-#### AngularJS
-
-- `ng serve` - to start the client server
-- `ng g c <name>` creates new component
-- `ng g s <name>` optional part `--skip-tests` - creates the service
-
 ## Development process
 
 ### Changelog
@@ -148,6 +148,7 @@ public void ConfigureServices(IServiceCollection services){
 - installed microsoft api core jwt bearer, added protected routers to the `UserController`
 - added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
 - Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
+- _Login persist feature_
 
 #### Client
 
@@ -155,6 +156,7 @@ public void ConfigureServices(IServiceCollection services){
 - added bootstrap in the `app.module.ts`
 - added navigation component `nav` with login form that takes the input and outputs to console log using ngModel
 - created account service `account.services.ts` that creates the post request to the `api/account/login`
+- _Login persist feature_ in the `account.services.ts` modifies login f-tion to use RxJS and add the observable to the localStorage, also adds the logout function
 
 ## Some theory
 
