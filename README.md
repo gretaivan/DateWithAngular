@@ -162,6 +162,10 @@ public void ConfigureServices(IServiceCollection services){
   - adds in `app.component.ts` setUser functionality to update it from the local storage and if it exists pass it back to `account.service.ts`
   - modifies `nav.component.ts` to subscribe observable `currentUser$`
   - refactors app account services and nav component to use pipe so it automatically unsubscribes when component is not in use, also code cleanup reduce repetition.
+- _Homepage aka home component_
+  - generated `home and register` components with angular cli without tests
+  - in home component adds basic logic of changing the screens - toggle the registration form
+  - adds `register` component logic and template form
 
 ## Some theory
 
