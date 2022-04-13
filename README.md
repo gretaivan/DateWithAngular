@@ -148,7 +148,6 @@ public void ConfigureServices(IServiceCollection services){
 - installed microsoft api core jwt bearer, added protected routers to the `UserController`
 - added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
 - Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
-- _Login persist feature_
 
 #### Client
 
@@ -156,7 +155,12 @@ public void ConfigureServices(IServiceCollection services){
 - added bootstrap in the `app.module.ts`
 - added navigation component `nav` with login form that takes the input and outputs to console log using ngModel
 - created account service `account.services.ts` that creates the post request to the `api/account/login`
-- _Login persist feature_ in the `account.services.ts` modifies login f-tion to use RxJS and add the observable to the localStorage, also adds the logout function
+- _Login persist feature_
+  - in the `account.services.ts` modifies login f-tion to use RxJS and add the observable to the localStorage, also adds the logout function
+  - adds user model in \_models files
+  - modifies `account.services.ts` to utilise user model as well as adds an observable `currentUser$` and modifies the login and logout functions
+  - adds in `app.component.ts` setUser functionality to update it from the local storage and if it exists pass it back to `account.service.ts`
+  - modifies `nav.component.ts` to subscribe observable `currentUser$`
 
 ## Some theory
 
