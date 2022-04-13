@@ -20,7 +20,6 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - [ ] Display notifications in Angular
 - [x] Authentication using JWT Authentication tokens
 - [ ] Real time notifications and presence using SignalR
-
 - [ ] drag and drop photo upload integrating into a cloud platform
 - [ ] private messaging system
 - [ ] filtering, sorting and paging of data
@@ -29,16 +28,14 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 
 ## Aims
 
-- [ ] Adding a Client side login and register function to our Angular application
-- [ ] Adding 3rd party components to add some pizzazz to the app
+- [x] Adding a Client side login and register function to our Angular application
 - [ ] Adding routing to the Angular application and securing routes.
 - [ ] Using Automapper in ASP.NET Core
-- [ ] Building a great looking UI using Bootstrap
-- [ ] Adding Photo Upload functionality as well as a cool looking gallery in Angular
+- [ ] Building UI using Bootstrap
+- [ ] Adding Photo Upload functionality as well as a gallery in Angular
 - [ ] Angular Template forms and Reactive forms and validation
 - [ ] Paging, Sorting and Filtering
 - [ ] Adding a Private Messaging system to the app
-- [ ] Publishing the application to Heroku free of charge
 - [ ] Using SignalR for real time presence and live messaging between users
 - [ ] Handling errors in the API and the SPA
 - [ ] Persist data using Entity Framework Core
@@ -155,12 +152,39 @@ public void ConfigureServices(IServiceCollection services){
 #### Client
 
 - generated nav component with CLI
-- added bootstrap
+- added bootstrap in the `app.module.ts`
 - added navigation component `nav` with login form that takes the input and outputs to console log using ngModel
-- created account service `account.services.ts` that creates the post request to the `api/account/login` 
-
+- created account service `account.services.ts` that creates the post request to the `api/account/login`
 
 ## Some theory
+
+### Observables
+
+appeared since Angular 2. It is lazy collections of multiple values over time, used to handle async data e.g. for http requests and for components to be "watched" for change of values - only subscribers will receive the data updates. After subscribing definition what to do with the data is required on success and on error and when complete:
+
+```
+  .subscribe( x => {},
+  error => {},
+  () => {})
+```
+
+or to send to the promise `toPromise()` and handle it as a normal promise, or automatically subscribe/ unsubscribe from the Observables:
+
+```
+<li *ngFor='let member of service.getMembers() | async'>{{member.username}}</li>
+
+```
+
+| Promise                        | Observable                                           |
+| ------------------------------ | ---------------------------------------------------- |
+| Provides a single future value | Emits multiple values over the time                  |
+| Not lazy                       | Lazy                                                 |
+| Can not cancel                 | Able to cancel                                       |
+|                                | Can use with map, filter, reduce and other operators |
+
+#### RxJS
+
+Reactive extensions for JS it works with Observables. RxJS enables the Obeservable data manipulation. `.pipe()` method allows to chain as many functions to transform or select parts of the data.
 
 ### Entity Framework
 
@@ -233,4 +257,4 @@ is a good practice to keep a startup class as clean as possible. The method that
 #### Angular
 
 - Two way biding syntax `()` means from the template to component and `[]` from component to the template and `[()]` is a two way binding
-- Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a componentconstructor 
+- Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a componentconstructor
