@@ -59,6 +59,8 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - [ ] filtering, sorting and paging of data
 - [ ] Display notifications in Angular
 - [ ] Real time notifications and presence using SignalR
+- [ ] Angular routing
+- [ ] Angular route guards
 
 ## Aims
 
@@ -165,7 +167,10 @@ public void ConfigureServices(IServiceCollection services){
 - _Homepage aka home component_
   - generated `home and register` components with angular cli without tests
   - in home component adds basic logic of changing the screens - toggle the registration form
-  - adds `register` component logic and template form with cancel functionality
+  - adds `register` component logic and template form with register and cancel functionality
+- adds 4 new components lists, messages, members-lists, members-details
+- _Routing component_
+  - defines the routes in the `app-routing.module.ts`
 
 ## Some theory
 
@@ -270,4 +275,4 @@ is a good practice to keep a startup class as clean as possible. The method that
 - Two way biding syntax `()` means from the template to component and `[]` from component to the template and `[()]` is a two way binding
 - to pass data parent to child add to html parent template add `[childVarName]="parentVarName"` allows passing down the data parent to child
 - to pass from child to parent in html parent template add: `(childVar)="parentfunction($event || other property)` sending data from the child -->
-- Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a componentconstructor
+- Angular service is injectable and a singleton - once injected to the component and initlised it will stay initialised until disposed e.g. browser is closed. Injection is made through a component constructor
