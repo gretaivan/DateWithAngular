@@ -88,6 +88,8 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - Sqlite - for development
 - System.Identity model tokens jwt
 - Microsoft.Aspnetcore.Authentication.JWTBearer c 5.0.13
+- Toaster for Angular (ngx-toaster) v1.0.1
+- Toastr for Angular (ngx-toastr) v13.0.0
 
 ###### and of course
 
@@ -171,6 +173,8 @@ public void ConfigureServices(IServiceCollection services){
 - adds 4 new components lists, messages, members-lists, members-details
 - _Routing component_
   - defines the routes in the `app-routing.module.ts`
+  - added the router links in nav component
+- installs and adds ngx-toastr in `angular.json` styles and `app.module.ts` and adds error popup for login and registration
 
 ## Some theory
 
@@ -181,7 +185,7 @@ appeared since Angular 2. It is lazy collections of multiple values over time, u
 ```
   .subscribe( x => {},
   error => {},
-  () => {})
+  () => {})  // final is what to do when complete
 ```
 
 or to send to the promise `toPromise()` and handle it as a normal promise, or automatically subscribe/ unsubscribe from the Observables:
