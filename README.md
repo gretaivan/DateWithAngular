@@ -21,6 +21,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - `ng new client --strict false` - to create a new client folder with angular
 - `ng add ngx-bootstrap`
 - `npm install font-awesome`
+- `ng g guard auth --skip-tests` 'can create' provides routing protection
 
 ### Usage
 
@@ -175,6 +176,7 @@ public void ConfigureServices(IServiceCollection services){
   - defines the routes in the `app-routing.module.ts`
   - added the router links in nav component
 - installs and adds ngx-toastr in `angular.json` styles and `app.module.ts` and adds error popup for login and registration
+- adds `_guard` with `ng g guard auth --skip-tests`, modifies guard to check if current user exits and refactors `app-routing.module` to use guard protection on all routes
 
 ## Some theory
 
