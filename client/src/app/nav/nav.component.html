@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top primary">
   <div class="container">
     <a class="navbar-brand" routerLink="/" routerLinkActive="active">D+A</a>
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <!-- ng container does not generate any html but allows to add angular functionality 
       will not interfare with any of the styling-->
       <ng-container *ngIf="accountService.currentUser$ | async">
-        <li class="nav-item">
+        <li class="nav-item flex-start">
           <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
@@ -17,13 +17,6 @@
         </li> 
       </ng-container>
     </ul>
-
-
-    <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplet="off">
-      <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Login Username">
-      <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Login Password">
-      <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
   </div>
 
   <div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown" dropdown>

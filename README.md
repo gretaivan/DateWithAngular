@@ -22,6 +22,7 @@ A dating app built for learning purposes. ASP.NET Core WebAPI and the Angular ap
 - `ng add ngx-bootstrap`
 - `npm install font-awesome`
 - `ng g guard auth --skip-tests` 'can create' provides routing protection
+- `ng g module shared --flat` creates a module without the dedicated folder
 
 ### Usage
 
@@ -153,6 +154,7 @@ public void ConfigureServices(IServiceCollection services){
 - installed microsoft api core jwt bearer, added protected routers to the `UserController`
 - added middleware in the `Startup.cs` dependency injection `ConfigureServices()` to add the JwtBearerService with the required config and `Configure()` method `UseAuthentication` between corse and authorization and sequence is important.
 - Created `Extensions`: `ApplicationServiceExtensions` and `IdentityServiceExtensions` to refactor `Startup.cs` token and data/db services. [see](#### Extension methods)
+- Created `BuggyController` to create the error responses for testing
 
 #### Client
 
@@ -177,6 +179,7 @@ public void ConfigureServices(IServiceCollection services){
   - added the router links in nav component
 - installs and adds ngx-toastr in `angular.json` styles and `app.module.ts` and adds error popup for login and registration
 - adds `_guard` with `ng g guard auth --skip-tests`, modifies guard to check if current user exits and refactors `app-routing.module` to use guard protection on all routes
+- creates module directory for the cleanup that contains `shared.module` this is to keep main app.module clean.
 
 ## Some theory
 
