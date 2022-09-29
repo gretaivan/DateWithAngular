@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class AccountController : BaseApiContoller
+    public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
         private readonly ITokenCreator _token;

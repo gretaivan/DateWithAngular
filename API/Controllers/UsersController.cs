@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-  public class UsersController : BaseApiContoller
+  public class UsersController : BaseApiController
   {
     private readonly DataContext context;
 

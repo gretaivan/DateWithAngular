@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using API.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using API.Entities;
+// using System.Web.Http.HttpGetAttribute;
 
 /***
 * test unauthorised responses
@@ -23,12 +27,11 @@ namespace API.Controllers
             return "secret text";
         }   
 
- 
         [HttpGet("not-found")]
         public ActionResult<AppUser> GetNotFound(){
             var thing = _context.Users.Find(-1);
 
-            if(thing == 0) return NotFound();
+            if(thing == null) return NotFound();
             
             return Ok(thing);
         }

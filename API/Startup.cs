@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Extensions;
 using API.Services.TokenService;
+using API.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,27 +48,29 @@ namespace API
 			// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 			{
-					if (env.IsDevelopment())
-					{
-							app.UseDeveloperExceptionPage();
-							app.UseSwagger();
-							app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-					}
+				app.UseMiddleware<ExceptionMiddleware>(); 
 
-					app.UseHttpsRedirection();
+				// if (env.IsDevelopment())
+				// {
+				// 		app.UseDeveloperExceptionPage();
+				// 		app.UseSwagger();
+				// 		app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+				// }
 
-					app.UseRouting();
+				app.UseHttpsRedirection();
 
-					app.UseCors( x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
-					
-					app.UseAuthentication(); 
+				app.UseRouting();
 
-					app.UseAuthorization();
+				app.UseCors( x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+				
+				app.UseAuthentication(); 
 
-					app.UseEndpoints(endpoints =>
-					{
-							endpoints.MapControllers();
-					});
+				app.UseAuthorization();
+
+				app.UseEndpoints(endpoints =>
+				{
+						endpoints.MapControllers();
+				});
 			}
 	}
 }
