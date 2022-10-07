@@ -10,6 +10,7 @@ import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'errors', component: TestErrorsComponent},
   {
     path: '',
     runGuardsAndResolvers: 'always',
@@ -19,7 +20,6 @@ const routes: Routes = [
       {path: 'members/:id', component: MemberDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
-      {path: 'errors', component: TestErrorsComponent},
       {path: '**', component: HomeComponent, pathMatch: 'full'},// should be not found later on
      
     ]

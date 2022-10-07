@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-test-errors',
@@ -9,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class TestErrorsComponent implements OnInit {
 
   baseUrl = 'https://localhost:5001/api/';
+  validationErrors: string[] = [];
 
   constructor(private http: HttpClient) { }
+
 
   ngOnInit(): void {
   }
@@ -48,13 +51,13 @@ export class TestErrorsComponent implements OnInit {
     })
   }
 
-    get400ValidationError() {
-    this.http.get(this.baseUrl + 'account/register', {}).subscribe(res => {
-      console.log(res);
+  get400ValidationError() {
+    this.http.post(this.baseUrl + 'account/register', {}).subscribe(response => {
+      console.log(response);
     }, error => {
       console.log(error);
+      this.validationErrors = error;
     })
   }
-
 
 }
